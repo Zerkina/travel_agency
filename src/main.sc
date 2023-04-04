@@ -12,6 +12,7 @@ theme: /General
         buttons:
             "Узнать погоду" -> /Weather/What_weather
             "Оформить заявку на тур" -> /Application/Appl_form
+        
 
 
     state: Hello

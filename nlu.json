@@ -43,8 +43,41 @@
       "refs" : [ ]
     },
     "priority" : 0
+  }, {
+    "path" : "/погода",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Какая сейчас погода"
+    }, {
+      "text" : "Расскажи о погоде"
+    }, {
+      "text" : "Что там с погодой"
+    }, {
+      "text" : "Поведай о погоде"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
-  "entities" : [ ],
+  "entities" : [ {
+    "entity" : {
+      "name" : "Дата",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ ]
+  } ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
