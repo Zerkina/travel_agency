@@ -4,7 +4,7 @@ require: tour_application.sc
 require: patterns.sc
 require: weather.sc
 
-theme: /
+theme: /General
 
     state: Start
         q!: $regex</start>
@@ -30,7 +30,7 @@ theme: /
 
         
 
-    state: CatchAll 
+    state: CatchAll || noContext = true
         event!: noMatch
         random:
             a: Простите, я вас не понял. Переформулируйте, пожалуйста, свой запрос.
