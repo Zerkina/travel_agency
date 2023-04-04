@@ -1,22 +1,44 @@
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
+require: tour_application.sc
+require: patterns.sc
+require: weather.sc
+
 theme: /
 
     state: Start
         q!: $regex</start>
-        a: Начнём.
-
+        a: Привет! Я - Виктор, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
+        buttons:
+            "Узнать погоду" -> /Weather/What_weather
+            "Оформить заявку на тур" -> /Application/Appl_form
+        
+            
+    
     state: Hello
-        intent!: /привет
-        a: Привет привет
+        q!: * $hello *
+        random:
+            a: Привет. Как дела? 
+            a: Здравствуйте. Как настроение?
+            
+            state: DoinGood
+                q:*(хорош*/норм*/замечательн*/ок*/отлично)*
+                a: Хорошо, что у Вас все в порядке! Как я могу вам помочь?
+            state: DoinBad
+                q: *(плох*| не [очень] хорош*| так себе | сойдет)*
+                a: Жаль это слышать. Может, я могу чем-то помочь?
+            
 
-    state: Bye
-        intent!: /пока
-        a: Пока пока
+        
 
-    state: NoMatch
+    state: CatchAll || noContext = true
         event!: noMatch
-        a: Я не понял. Вы сказали: {{$request.query}}
+        random:
+            a: Простите, я вас не понял. Переформулируйте, пожалуйста, свой запрос.
+            a: Извините, я не понимаю. Попробуйте ответить по-другому.
+        
+            
+        
 
     state: Match
         event!: match
