@@ -5,7 +5,7 @@ require: patterns.sc
 require: weather.sc
 
 theme: /General
-
+    
     state: Start ||sessionResult = "Start"
         q!: $regex</start>
         q: *(отмена/стоп/в начало/хватит/start) * || fromState = /Weather/What_weather
