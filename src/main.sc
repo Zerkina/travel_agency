@@ -8,7 +8,9 @@ theme: /General
 
     state: Start
         q!: $regex</start>
-        a: Привет! Я - {{$injector.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
+        script:
+            $temp.botName = capitalize($injector.botName);
+        a: Привет! Я - {{temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
         buttons:
             "Узнать погоду" -> /Weather/What_weather
             "Оформить заявку на тур" -> /Application/Appl_form
