@@ -1,6 +1,11 @@
 name: zb-cailapub
 
+
 entryPoint: main.sc
+
+
+injector:
+  botName: виктор
 
 botEngine: v2
 language: ru
