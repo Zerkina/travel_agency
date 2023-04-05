@@ -3,6 +3,7 @@ require: slotfilling/slotFilling.sc
 require: tour_application.sc
 require: patterns.sc
 require: weather.sc
+require: functions.js
 
 theme: /General
     

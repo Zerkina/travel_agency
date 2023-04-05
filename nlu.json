@@ -44,7 +44,7 @@
     },
     "priority" : 0
   }, {
-    "path" : "/погода",
+    "path" : "/geo",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
@@ -55,34 +55,36 @@
       "text" : "Что там с погодой"
     }, {
       "text" : "Поведай о погоде"
+    }, {
+      "text" : "Что с погодой"
+    }, {
+      "text" : "Какая погода"
+    }, {
+      "text" : "@mystem.geo"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
     "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Date",
+      "entity" : "duckling.time",
+      "required" : true,
+      "prompts" : [ "Сегодня? ", "Сейчас?", "Завтра?", "На завтра?", "На следующей неделе?", "в данный момент?" ]
+    }, {
+      "name" : "City",
+      "entity" : "mystem.geo",
+      "required" : true,
+      "prompts" : [ "В каком городе?", "Где?", "В какой стране?", "А страна?", "Что насчет города?", "Введите город", "В каком городе вы хотели бы узнать прогноз погоды?" ]
+    } ],
     "priority" : 0
   } ],
-  "entities" : [ {
-    "entity" : {
-      "name" : "Дата",
-      "enabled" : true,
-      "shared" : false,
-      "type" : "annotation",
-      "priority" : 1,
-      "noSpelling" : true,
-      "noMorph" : false,
-      "phoneticSearch" : false,
-      "fuzzySearch" : false,
-      "client" : false,
-      "hidden" : false
-    },
-    "records" : [ ]
-  } ],
-  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
+  "entities" : [ ],
+  "enabledSystemEntities" : [ "mystem.geo", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
     "name" : "mystem.geo",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "mystem.persn",
     "enabled" : false
