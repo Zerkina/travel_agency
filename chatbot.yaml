@@ -6,18 +6,12 @@ entryPoint: main.sc
 entryPoint: 
   - main.sc
 
-injector:
-  botName: виктор
-  api_key:'6c44262a6476b5975615ab8ff9838a5d'
-  slotfilling:
-        maxSlotRetries: 2
-        stopOnAnyIntent: false
-        stopOnAnyIntentThreshold: 0.2
-    
-  
-
+ 
 botEngine: v2
 language: ru
+
+sts:
+    noMatchThreshold: 0.2
 
 tests:
   include:
@@ -27,3 +21,12 @@ nlp:
   intentNoMatchThresholds:
     phrases: 0.2
     patterns: 0.2
+
+
+injector:
+   botName: виктор
+   api_key: '6c44262a6476b5975615ab8ff9838a5d'
+   slotfilling:
+       maxSlotRetries: 2
+       stopOnAnyIntent: false
+       stopOnAnyIntentThreshold: 0.2
