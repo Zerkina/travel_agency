@@ -8,8 +8,8 @@ entryPoint:
 
 injector:
   botName: виктор
-    api_key:'6c44262a6476b5975615ab8ff9838a5d'
-    slotfilling:
+  api_key:'6c44262a6476b5975615ab8ff9838a5d'
+  slotfilling:
         maxSlotRetries: 2
         stopOnAnyIntent: false
         stopOnAnyIntentThreshold: 0.2
