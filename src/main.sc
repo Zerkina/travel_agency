@@ -9,7 +9,6 @@ theme: /General
     state: Start
         q!: $regex</start>
         q: *(отмен*/стоп/в начало/хватит/start) * || fromState = /What_weather
-        q: *(отмен*/стоп/в начало/хватит/start) * || fromState = /Application/Appl_form
         script:
             $temp.botName = capitalize($injector.botName);
         a: Привет! Я - {{$temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
