@@ -8,7 +8,7 @@ theme: /General
 
     state: Start
         q!: $regex</start>
-        q: *(отмен*/стоп/в начало/хватит/start) * || fromState = /Weather/What_weather
+        q: *(отмен*/стоп/в начало/хватит/start) * || fromState = /What_weather
         q: *(отмен*/стоп/в начало/хватит/start) * || fromState = /Application/Appl_form
         script:
             $temp.botName = capitalize($injector.botName);
@@ -17,7 +17,10 @@ theme: /General
             "Узнать погоду" -> /Weather/What_weather
             "Оформить заявку на тур" -> /Application/Appl_form
         
-
+    state: What_weather
+            q!: *(погод*)
+            a: Какой город или страна Вас интересует?
+            
 
     state: Hello
         q!: * $hello *
