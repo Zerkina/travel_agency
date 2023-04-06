@@ -10,10 +10,11 @@ theme: /Weather
                             $reactions.answer("Уфф, жарко. Едем туда?")
                         } else if (Math.round(res.main.temp) < 0) {
                             $reactions.answer("Страна с холодным климатом. Едем и не боимся холодов, верно?")
+                        }    
                         } else {
                             $reactions.answer("Погодка что надо! Едем туда?");
                         }
-                }) .catch(function (err) {
+                }).catch(function (err) {
                     $reactions.answer("Что-то сервер барахлит. Не могу узнать погоду.");
                 });
                     
