@@ -13,7 +13,7 @@ theme: /Weather
                         } else {
                             $reactions.answer("Погодка что надо! Едем туда?");
                         }
-                }).catch(function (err) {
+                }) .catch(function (err) {
                     $reactions.answer("Что-то сервер барахлит. Не могу узнать погоду.");
                 });
                     
