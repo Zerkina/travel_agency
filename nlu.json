@@ -61,6 +61,10 @@
       "text" : "Какая погода"
     }, {
       "text" : "@mystem.geo"
+    }, {
+      "text" : "Узнать погоду"
+    }, {
+      "text" : "Хочу узнать погоду"
     } ],
     "classificationRules" : {
       "refs" : [ ]
@@ -76,7 +80,8 @@
       "name" : "City",
       "entity" : "mystem.geo",
       "required" : true,
-      "prompts" : [ "В каком городе?", "Введите город" ]
+      "prompts" : [ "В каком городе?", "Введите город" ],
+      "array" : false
     } ],
     "priority" : 0
   } ],
