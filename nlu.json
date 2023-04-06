@@ -76,7 +76,8 @@
       "name" : "City",
       "entity" : "mystem.geo",
       "required" : true,
-      "prompts" : [ "В каком городе?", "Введите город" ]
+      "prompts" : [ "В каком городе?", "Введите город" ],
+      "array" : false
     } ],
     "priority" : 0
   } ],
