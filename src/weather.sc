@@ -6,14 +6,14 @@ theme: /Weather
                 openWeatherMapCurrent("metric", "ru", city).then(function (res) {
                     if (res && res.weather) {
                         $reactions.answer("Сегодня в городе " + capitalize(city) + " " + res.weather[0].description + ", " + Math.round(res.main.temp) + "°C" );
-                        if (Math.round(res.main.temp) > 30) {
-                            $reactions.answer("Уфф, жарко. Едем туда?")
+                        if(res.weather[0].main == 'Rain' || res.weather[0].main == 'Drizzle') {
+                            $reactions.answer("Захвати зонт")
                         } else if (Math.round(res.main.temp) < 0) {
-                            $reactions.answer("Страна с холодным климатом. Едем и не боимся холодов, верно?")
+                            $reactions.answer("Холодно")
                         }    
-                        } else {
-                            $reactions.answer("Погодка что надо! Едем туда?");
-                        }
+                    } else {
+                        $reactions.answer("Сервер барахлит");
+                    }
                 }).catch(function (err) {
                     $reactions.answer("Что-то сервер барахлит. Не могу узнать погоду.");
                 });
