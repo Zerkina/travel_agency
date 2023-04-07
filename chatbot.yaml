@@ -1,8 +1,6 @@
-name: zb-cailapub
-weather-api
+name: weather-api
 
 
-entryPoint: main.sc
 entryPoint:
   - main.sc
  
