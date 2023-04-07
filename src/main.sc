@@ -19,7 +19,7 @@ theme: /General
             q: * погода *
             go: What_weather
             q: * тур *
-            go: /Application/Appl_form
+            go!: /Application/Appl_form
             
     
 
