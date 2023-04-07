@@ -15,11 +15,7 @@ theme: /General
         buttons:
             "Узнать погоду" -> /General/What_weather
             "Оформить заявку на тур" -> /Application/Appl_form
-        state: ChooseOption
-            q: * погода *
-            go: What_weather
-            q: * тур *
-            go!: /Application/Appl_form
+
             
     
 
