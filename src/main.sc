@@ -14,7 +14,7 @@ theme: /General
             $temp.botName = capitalize($injector.botName);
         a: Привет! Я - {{$temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
         buttons:
-            "Узнать погоду" -> /What_weather
+            "Узнать погоду" -> /General/What_weather
             "Оформить заявку на тур" -> /Application/Appl_form
             
     
@@ -29,14 +29,14 @@ theme: /General
                 q:*(хорош*/норм*/замечательн*/ок*/отлично)*
                 a: Хорошо, что у Вас все в порядке! Как я могу вам помочь?
                 buttons:
-                    "Узнать погоду" -> /What_weather
+                    "Узнать погоду" -> /General/What_weather
                     "Оформить заявку на тур" -> /Application/Appl_form
 
         state: DoinBad
                 q: *(плох*| не [очень] хорош*| так себе | сойдет)*
                 a: Жаль это слышать. Может, я могу чем-то помочь?
                 buttons:
-                    "Узнать погоду" -> /What_weather
+                    "Узнать погоду" -> /General/What_weather
                     "Оформить заявку на тур" -> /Application/Appl_form        
         
 
