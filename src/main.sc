@@ -15,11 +15,10 @@ theme: /General
         buttons:
             "Узнать погоду" -> /General/What_weather
             "Оформить заявку на тур" -> /Application/Appl_form
-        state: Choose
-            q: * (погода/ какая погода) *
-            go: /General/what_weather
-            q: * (заявочка / тур) *
-            go: /Application/Appl_form
+        state: LocalCatchAll
+            event: noMatch
+            a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
+            go!: ..
             
             
     
