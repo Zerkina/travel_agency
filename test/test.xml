@@ -26,7 +26,7 @@
         <q>Расскажи что-нибудь еще</q>
         <a state="/General/CatchAll"/>
         <q>Москва</q>
-        <a state="/What_weather"/>
+        <a state="/Weather/What_weather"/>
     </test-case>
 
 </test>
