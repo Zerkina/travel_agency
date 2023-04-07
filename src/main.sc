@@ -56,7 +56,7 @@ theme: /General
                         $reactions.answer("Сервер барахлит");
                     }
                 }).catch(function (err) {
-                    $reactions.answer("Что-то сервер барахлит. Не могу узнать погоду.");
+                    $reactions.answer("Хз, какая-то херня.");
                 });        
 
 
