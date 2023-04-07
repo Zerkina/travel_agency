@@ -1,8 +1,10 @@
-name: zb-cailapub, weather-api
+name: zb-cailapub
+name: weather-api
 
 
 entryPoint: main.sc
-
+entryPoint:
+  - main.sc
  
 botEngine: v2
 language: ru
