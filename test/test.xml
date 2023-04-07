@@ -1,6 +1,6 @@
 <test integration="false">
     <test-case id="1">
-        <q>/start</q>
+        <q>$regex</start</q>
         <a state="/General/Start"/>
     </test-case>
 
