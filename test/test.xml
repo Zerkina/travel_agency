@@ -22,7 +22,7 @@
         <q>Расскажи что-нибудь еще</q>
         <a state="/CatchAll"/>
         <q>Москва</q>
-        <a state="/GetWeather"/>
+        <a state="/Whatweather"/>
     </test-case>
 
 </test>
