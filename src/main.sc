@@ -16,6 +16,7 @@ theme: /General
         buttons:
             "Узнать погоду" -> /What_weather
             "Оформить заявку на тур" -> /Application/Appl_form
+            
     
 
     state: Hello
@@ -28,8 +29,8 @@ theme: /General
                 q:*(хорош*/норм*/замечательн*/ок*/отлично)*
                 a: Хорошо, что у Вас все в порядке! Как я могу вам помочь?
                 buttons:
-                    "Узнать погоду" -> /Weather/What_weather
-                    "Оформить заявку на тур" -> /Application/Appl_form
+                    "Узнать погоду" -> /What_weather
+                    "Оформить заявку на тур" -> /Appl_form
 
         state: DoinBad
                 q: *(плох*| не [очень] хорош*| так себе | сойдет)*
