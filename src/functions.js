@@ -1,7 +1,7 @@
 var OPENWEATHERMAP_API_KEY = $injector.api_key;
 
 function openWeatherMapCurrent(units, lang, q){
-return $http.get("http://api.openweathermap.org/data/3.0/weather?APPID=${APPID}&units=${units}&lang=${lang}&q=${q}", {
+return $http.get("http://api.openweathermap.org/data/2.5/weather?APPID=${6c44262a6476b5975615ab8ff9838a5d}&units=${units}&lang=${lang}&q=${q}, {
         timeout: 10000,
         query:{
             APPID: OPENWEATHERMAP_API_KEY,
