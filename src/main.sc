@@ -30,13 +30,13 @@ theme: /General
                 a: Хорошо, что у Вас все в порядке! Как я могу вам помочь?
                 buttons:
                     "Узнать погоду" -> /What_weather
-                    "Оформить заявку на тур" -> /Appl_form
+                    "Оформить заявку на тур" -> /Application/Appl_form
 
         state: DoinBad
                 q: *(плох*| не [очень] хорош*| так себе | сойдет)*
                 a: Жаль это слышать. Может, я могу чем-то помочь?
                 buttons:
-                    "Узнать погоду" -> /Weather/What_weather
+                    "Узнать погоду" -> /What_weather
                     "Оформить заявку на тур" -> /Application/Appl_form        
         
 
