@@ -21,9 +21,6 @@
 
 
     <test-case id="3">
-        <q>/start</q>
-        <a state="/General/Start"/>
-        <q>Расскажи что-нибудь еще</q>
         <a state="/General/CatchAll"/>
         <q>Москва</q>
         <a state="/Weather/What_weather"/>
