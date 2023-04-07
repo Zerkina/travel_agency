@@ -2,7 +2,6 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
 require: tour_application.sc
 require: patterns.sc
-require: weather.sc
 require: functions.js
 
 theme: /General
