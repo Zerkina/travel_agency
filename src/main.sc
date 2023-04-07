@@ -18,7 +18,9 @@ theme: /General
         state: LocalCatchAll
             event: noMatch
             a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
-            go!: ..
+            buttons:
+                "Узнать погоду" -> /General/What_weather
+                "Оформить заявку на тур" -> /Application/Appl_form
             
             
     
