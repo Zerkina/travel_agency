@@ -1,6 +1,7 @@
 theme: /Weather
         state: What_weather
             intent!: /geo
+            a: В каком городе?
             script:
                 var city = $caila.inflect($parseTree._geo, ["nomn"]);
                 openWeatherMapCurrent("metric", "ru", city).then(function (res) {
