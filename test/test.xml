@@ -24,7 +24,7 @@
         <q>/start</q>
         <a state="/General/Start"/>
         <q>Расскажи что-нибудь еще</q>
-        <a state="/CatchAll"/>
+        <a state="/General/CatchAll"/>
         <q>Москва</q>
         <a state="/Whatweather"/>
     </test-case>
