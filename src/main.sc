@@ -3,7 +3,9 @@ require: slotfilling/slotFilling.sc
 require: tour_application.sc
 require: patterns.sc
 require: functions.js
-
+require: city/city.sc
+    module = sys.zb-common
+    
 theme: /General
     
     state: Start ||sessionResult = "Start"
