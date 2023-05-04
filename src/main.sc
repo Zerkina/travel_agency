@@ -31,8 +31,11 @@ theme: /WeatherAndTours
         q: * @duckling.date::date *
         q: * [$Question] * $Weather * $City * [$Date] *
         script:
-            $session.geo = $parseTree._geo;
+            #$session.geo = $parseTree._geo;
             $session.date = $parseTree._date;
+            var city = $caila.inflect($parseTree._geo, ["nomn"]);
+            
+            
             
     
     
