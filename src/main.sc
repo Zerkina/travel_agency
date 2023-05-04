@@ -1,33 +1,44 @@
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
-require: tour_application.sc
 require: patterns.sc
 require: functions.js
-require: city/city.sc
-    module = sys.zb-common
+
+theme: /WeatherAndTours
     
-theme: /General
-    
-    state: Start ||sessionResult = "Start"
+    state: Hello ||modal = true
         q!: $regex</start>
-        q: *(отмена/стоп/в начало/хватит/start) * || fromState = /Weather/What_weather
         script:
+            $jsapi.startSession();
             $temp.botName = capitalize($injector.botName);
-        a: Привет! Я - {{$temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
+        random:
+            a: Привет! Я - {{$temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
+            a: Вас приветствует {{$temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
         buttons:
-            "Узнать погоду" -> /General/What_weather
+            "Узнать погоду" -> /WeatherAndTours/What_weather
             "Оформить заявку на тур" -> /Application/Appl_form
         state: LocalCatchAll
             event: noMatch
             a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
             buttons:
-                "Узнать погоду" -> /General/What_weather
+                "Узнать погоду" -> /WeatherAndTours/What_weather
                 "Оформить заявку на тур" -> /Application/Appl_form
-            
-            
     
+    
+    state: What_weather
+        a: Какой город и день вас интересует?
+        q!: * weather *
+        q: * @mystem.geo::geo *
+        q: * @duckling.date::date *
+        q: * [$Question] * $Weather * $City * [$Date] *
+        script:
+            $session.geo = $parseTree._geo;
+            $session.date = $parseTree._date;
+            $reactions.answer("ОК");
+    
+    
+            
 
-    state: Hello
+    state: HowAreYou
         q!: * $hello *
         random:
             a: Привет. Как дела?
@@ -37,43 +48,39 @@ theme: /General
                 q:*(хорош*/норм*/замечательн*/ок*/отлично)*
                 a: Хорошо, что у Вас все в порядке! Как я могу вам помочь?
                 buttons:
-                    "Узнать погоду" -> /General/What_weather
+                    "Узнать погоду" -> /WeatherAndTours/What_weather
                     "Оформить заявку на тур" -> /Application/Appl_form
 
         state: DoinBad
                 q: *(плох*| не [очень] хорош*| так себе | сойдет)*
                 a: Жаль это слышать. Может, я могу чем-то помочь?
                 buttons:
-                    "Узнать погоду" -> /General/What_weather
+                    "Узнать погоду" -> /WeatherAndTours/What_weather
                     "Оформить заявку на тур" -> /Application/Appl_form        
         
-
-    state: What_weather
-            intent!: /geo
-            a: В каком городе?
-            script:
-                var city = $caila.inflect($parseTree._geo, ["nomn"]);
-                openWeatherMapCurrent("metric", "ru", city).then(function (res) {
-                    if (res && res.weather) {
-                        $reactions.answer("Сегодня в городе " + capitalize(city) + " " + res.weather[0].description + ", " + Math.round(res.main.temp) + "°C" );
-                        if(res.weather[0].main == 'Rain' || res.weather[0].main == 'Drizzle') {
-                            $reactions.answer("Захвати зонт")
-                        } else if (Math.round(res.main.temp) < 0) {
-                            $reactions.answer("Холодно")
-                        }    
-                    } else {
-                        $reactions.answer("Сервер барахлит");
-                    }
-                }).catch(function (err) {
-                    $reactions.answer("Хз, какая-то херня.");
-                });        
-
-
-
-
-
-
+     
+     
+     
         
+        
+    state: Appl_form
+        q!: *([оформит*] заявк* [на]  [тур])*
+        a: Ответьте на пару вопросов, чтобы я мог сформировать заявку и отправить ее нашему менеджеру. Вы готовы?
+        state: Yes
+            q: * $yes *
+            go!:/Query
+            
+        state: No
+            q: * $no *
+            go!:/WeatherAndTours/Query
+            
+            
+    state: Query
+        a: Молодец
+        
+
+
+
 
     state: CatchAll || noContext = true
         event!: noMatch

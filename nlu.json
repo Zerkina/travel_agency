@@ -2,7 +2,7 @@
   "project" : {
     "id" : "bot_dlya_turistiches-1000084064-iId",
     "name" : "bot_dlya_turistiches-1000084064-iId",
-    "folder" : "/jaicp"
+    "folder" : "/platform"
   },
   "settings" : {
     "language" : "ru",
@@ -86,23 +86,23 @@
     "priority" : 0
   } ],
   "entities" : [ ],
-  "enabledSystemEntities" : [ "mystem.geo", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
+  "enabledSystemEntities" : [ "mystem.geo", "mystem.persn", "mystem.patrn", "mystem.famn", "pymorphy.geox", "duckling.number", "duckling.time", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
     "name" : "mystem.geo",
     "enabled" : true
   }, {
     "name" : "mystem.persn",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "mystem.obsc",
     "enabled" : false
   }, {
     "name" : "mystem.patrn",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "mystem.famn",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "pymorphy.romn",
     "enabled" : false
@@ -129,7 +129,7 @@
     "enabled" : false
   }, {
     "name" : "pymorphy.geox",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "pymorphy.orgn",
     "enabled" : false
@@ -156,7 +156,7 @@
   }, {
     "name" : "duckling.date",
     "version" : "v2",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "duckling.time-of-day",
     "version" : "v2",
