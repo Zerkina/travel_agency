@@ -33,7 +33,7 @@ theme: /WeatherAndTours
         script:
             $session.geo = $parseTree._geo;
             $session.date = $parseTree._date;
-            $reactions.answer("ОК");
+            
     
     
             
