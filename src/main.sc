@@ -15,13 +15,13 @@ theme: /WeatherAndTours
             a: Вас приветствует {{$temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
         buttons:
             "Узнать погоду" -> /WeatherAndTours/What_weather
-            "Оформить заявку на тур" -> /Application/Appl_form
+            "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
         state: LocalCatchAll
             event: noMatch
             a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
             buttons:
                 "Узнать погоду" -> /WeatherAndTours/What_weather
-                "Оформить заявку на тур" -> /Application/Appl_form
+                "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
     
     
     state: What_weather
@@ -61,14 +61,14 @@ theme: /WeatherAndTours
                 a: Хорошо, что у Вас все в порядке! Как я могу вам помочь?
                 buttons:
                     "Узнать погоду" -> /WeatherAndTours/What_weather
-                    "Оформить заявку на тур" -> /Application/Appl_form
+                    "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
 
         state: DoinBad
                 q: *(плох*| не [очень] хорош*| так себе | сойдет)*
                 a: Жаль это слышать. Может, я могу чем-то помочь?
                 buttons:
                     "Узнать погоду" -> /WeatherAndTours/What_weather
-                    "Оформить заявку на тур" -> /Application/Appl_form        
+                    "Оформить заявку на тур" -> /WeatherAndTours/Appl_form        
         
      
     state: Appl_form
