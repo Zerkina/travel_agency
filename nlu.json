@@ -60,8 +60,6 @@
     }, {
       "text" : "Какая погода"
     }, {
-      "text" : "@mystem.geo"
-    }, {
       "text" : "Узнать погоду"
     }, {
       "text" : "Хочу узнать погоду"
@@ -69,7 +67,7 @@
     "classificationRules" : {
       "refs" : [ ]
     },
-    "patterns" : [ ],
+    "patterns" : [ "@mystem.geo" ],
     "slots" : [ {
       "name" : "Date",
       "entity" : "duckling.time",
