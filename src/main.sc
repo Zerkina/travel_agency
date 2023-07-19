@@ -26,26 +26,13 @@ theme: /WeatherAndTours
     
     
     state: WhatWeather
-        q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[$Where] [@duckling.date::time|@duckling.time::time]} *
-        q!: * погода *
+        a: Назови город
+        q!: * $Where *
+        # q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[$Where] [@duckling.date::time|@duckling.time::time]} *
+        # q!: * погода *
         script:
-            if ($parseTree.Where) {
-                $session.geo = $parseTree.Where;
-            };
-
-            if ($parseTree._time) {
-                $session.time = $parseTree._time;
-            };
-            if ($session.geo) {
-                if ($session.time) {
-    #                $reactions.transition("/WeatherAndTours/AnswerDate");
-                    $reactions.transition("/WeatherAndTours/WeatherAPI");
-                }
-                else {
-                    $reactions.transition("/WeatherAndTours/WhatWeather/GetDate");
-                };
-            }
-
+           $session.geo = $parseTree.Where;
+           $reactions.transition("/Shallow")
         
         state: GetDate
             random:
@@ -60,9 +47,12 @@ theme: /WeatherAndTours
                     $session.time = $parseTree._time;
     #                $reactions.transition("/WeatherAndTours/AnswerDate");
                     $reactions.transition("/WeatherAndTours/WeatherAPI");
-        
+     
+    state: Shallow
+        a: {{$session.geo}} это прекрасно
+       
     state: WeatherAPI
-        a: Вы хотели бы узнать погоду города {{$session.geo}} на {{$session.time}}, верно?
+        a: Вы хотели бы узнать погоду на {{$session.time}}, верно?
     
         
         # q!: * weather *
