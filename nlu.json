@@ -43,45 +43,6 @@
       "refs" : [ ]
     },
     "priority" : 0
-  }, {
-    "path" : "/geo",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "Какая сейчас погода"
-    }, {
-      "text" : "Расскажи о погоде"
-    }, {
-      "text" : "Что там с погодой"
-    }, {
-      "text" : "Поведай о погоде"
-    }, {
-      "text" : "Что с погодой"
-    }, {
-      "text" : "Какая погода"
-    }, {
-      "text" : "Узнать погоду"
-    }, {
-      "text" : "Хочу узнать погоду"
-    } ],
-    "classificationRules" : {
-      "refs" : [ ]
-    },
-    "patterns" : [ "@mystem.geo" ],
-    "slots" : [ {
-      "name" : "Date",
-      "entity" : "duckling.time",
-      "required" : false,
-      "prompts" : [ "Сегодня? ", "На следующей неделе?" ],
-      "array" : true
-    }, {
-      "name" : "City",
-      "entity" : "mystem.geo",
-      "required" : true,
-      "prompts" : [ "В каком городе?", "Введите город" ],
-      "array" : false
-    } ],
-    "priority" : 0
   } ],
   "entities" : [ ],
   "enabledSystemEntities" : [ "mystem.geo", "mystem.persn", "mystem.patrn", "mystem.famn", "pymorphy.geox", "duckling.number", "duckling.time", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
