@@ -13,15 +13,15 @@ theme: /WeatherAndTours
         random:
             a: Привет! Я - {{$temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
             a: Вас приветствует {{$temp.botName}}, виртуальный турагент компании «Just Tour». Я могу рассказать о погоде в любой точке мира, а также помогу подобрать тур! Посмотрим погоду? Или оформим заявку на тур?
-        buttons:
-            "Узнать погоду" -> /WeatherAndTours/What_weather
-            "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
-        state: LocalCatchAll
-            event: noMatch
-            a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
-            buttons:
-                "Узнать погоду" -> /WeatherAndTours/What_weather
-                "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
+        # buttons:
+        #     "Узнать погоду" -> /WeatherAndTours/What_weather
+        #     "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
+        # state: LocalCatchAll
+        #     event: noMatch
+        #     a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
+        #     buttons:
+        #         "Узнать погоду" -> /WeatherAndTours/What_weather
+        #         "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
     
     
     state: What_weather
