@@ -25,30 +25,36 @@ theme: /WeatherAndTours
     
     
     state: What_weather
-        a: Какой город и день вас интересует?
-        q!: * weather *
-        #q: * @mystem.geo::geo *
-        intent!: /geo
-        q: * @duckling.date::date *
-        q: * [$Question] * $Weather * $City * [$Date] *
-        script:
-            #$session.geo = $parseTree._geo;
-            $session.date = $parseTree._date;
-            var city = $caila.inflect($parseTree._geo, ["nomn"]);
-            OpenWeatherMapCurrent("metric", "ru", city).then(function (res) {
-                if (res && res.weather) {
-                    $reactions.answer("Сегодня в городе " + capitalize(city) + " " + res.weather[0].description + ", " + Math.round(res.main.temp) + "°C" );
-                    if(res.weather[0].main == 'Rain' || res.weather[0].main == 'Drizzle') {
-                        $reactions.answer("Советую захватить с собой зонтик!")
-                    } else if (Math.round(res.main.temp) < 0) {
-                        $reactions.answer("Бррррр ну и мороз")
-                    }
-                } else {
-                    $reactions.answer("Что-то сервер барахлит. Не могу узнать погоду.");
-                }
-            }).catch(function (err) {
-                $reactions.answer("Что-то сервер барахлит. Не могу узнать погоду.");
-            });
+        q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[@mystem.geo::geo|@pymorphy.geox::geox] [@duckling.date::date|@duckling.time::time]} *
+        a: ok
+        
+        
+        
+        
+        
+        # q!: * weather *
+        # q!: * @mystem.geo::geo *
+        # intent!: /geo
+        # q: * @duckling.date::date *
+        
+        # script:
+        #     #$session.geo = $parseTree._geo;
+        #     $session.date = $parseTree._date;
+        #     var city = $caila.inflect($parseTree._geo, ["nomn"]);
+        #     OpenWeatherMapCurrent("metric", "ru", city).then(function (res) {
+        #         if (res && res.weather) {
+        #             $reactions.answer("Сегодня в городе " + capitalize(city) + " " + res.weather[0].description + ", " + Math.round(res.main.temp) + "°C" );
+        #             if(res.weather[0].main == 'Rain' || res.weather[0].main == 'Drizzle') {
+        #                 $reactions.answer("Советую захватить с собой зонтик!")
+        #             } else if (Math.round(res.main.temp) < 0) {
+        #                 $reactions.answer("Бррррр ну и мороз")
+        #             }
+        #         } else {
+        #             $reactions.answer("Что-то сервер барахлит. Не могу узнать погоду.");
+        #         }
+        #     }).catch(function (err) {
+        #         $reactions.answer("Что-то сервер барахлит. Не могу узнать погоду.");
+        #     });
             
     state: HowAreYou
         q!: * $hello *
