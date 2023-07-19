@@ -29,12 +29,13 @@ theme: /WeatherAndTours
         a: Назови город
         
         state: City
-            q: * $Where *
+            q: * (@mystem.geo::geo * 
+            q: * @pymorphy.geox::geo *
         # q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[$Where] [@duckling.date::time|@duckling.time::time]} *
         # q!: * погода *
             script:
-               $session.geo = $parseTree.Where;
-               $reactions.transition("../Shallow");
+               $session.geo = $parseTree._geo;
+               $reactions.transition("/Shallow");
      
     state: Shallow
         a: {{$session.geo}} это прекрасно
