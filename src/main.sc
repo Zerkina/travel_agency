@@ -16,17 +16,18 @@ theme: /WeatherAndTours
         buttons:
             "Узнать погоду" -> /WeatherAndTours/What_weather
             "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
-        # state: LocalCatchAll
-        #     event: noMatch
-        #     a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
-        #     buttons:
-        #         "Узнать погоду" -> /WeatherAndTours/What_weather
-        #         "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
+        state: LocalCatchAll
+            event: noMatch
+            a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
+            buttons:
+                "Узнать погоду" -> /WeatherAndTours/What_weather
+                "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
     
     
-    state: What_weather
-        q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[@mystem.geo::geo|@pymorphy.geox::geox] [@duckling.date::date|@duckling.time::time]} *
-        a: ok
+        state: What_weather
+            q: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[@mystem.geo::geo|@pymorphy.geox::geox] [@duckling.date::date|@duckling.time::time]} *
+            q: * погода *
+            a: ok
     
         
         
