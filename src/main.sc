@@ -17,19 +17,52 @@ theme: /WeatherAndTours
         buttons:
             "Узнать погоду" -> /WeatherAndTours/WhatWeather
             "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
-        state: LocalCatchAll
-            event: noMatch
-            a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
-            buttons:
-                "Узнать погоду" -> /WeatherAndTours/WhatWeather
-                "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
+        # state: LocalCatchAll
+        #     event: noMatch
+        #     a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
+        #     buttons:
+        #         "Узнать погоду" -> /WeatherAndTours/WhatWeather
+        #         "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
     
     
     state: WhatWeather
-        q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[@mystem.geo::geo|@pymorphy.geox::geox] [@duckling.date::date|@duckling.time::time]} *
+        q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[$Where] [@duckling.date::time|@duckling.time::time]} *
         q!: * погода *
-        
+        script:
+            if ($parseTree.Where) {
+                $session.geo = $parseTree.Where;
+            };
 
+            if ($parseTree._time) {
+                $session.time = $parseTree._time;
+            };
+            if ($session.geo) {
+                if ($session.time) {
+    #                $reactions.transition("/WeatherAndTours/AnswerDate");
+                    $reactions.transition("/WeatherAndTours/WeatherAPI");
+                }
+                else {
+                    $reactions.transition("/WeatherAndTours/WhatWeather/GetDate");
+                };
+            }
+
+        
+        state: GetDate
+            random:
+                a: На какую дату Вы хотели бы узнать прогноз?
+                a: На какой день Вы хотели бы узнать погоду?
+                a: Прогноз погоды на какой день Вас интересует?
+            
+            state: SaveDate
+                q: * @duckling.date::time *
+                q: * @duckling.time::time *
+                script:
+                    $session.time = $parseTree._time;
+    #                $reactions.transition("/WeatherAndTours/AnswerDate");
+                    $reactions.transition("/WeatherAndTours/WeatherAPI");
+        
+    state: WeatherAPI
+        a: ты тут
     
         
         # q!: * weather *

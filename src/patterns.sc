@@ -7,5 +7,5 @@ patterns:
     $weather = (([а] какая / что там по / *скажи* / хо(чу|тим) узнать / сообщи*) погод* [в|на])
     $Question = (какой|какая)
     $Weather = (погода|прогноз)
-    $City = (@mystem.geo|@pymorphy.geox)
+    $Where = (@mystem.geo|@pymorphy.geox)
     $Date = (@duckling.date|@duckling.time)
