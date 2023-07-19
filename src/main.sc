@@ -62,7 +62,7 @@ theme: /WeatherAndTours
                     $reactions.transition("/WeatherAndTours/WeatherAPI");
         
     state: WeatherAPI
-        a: ты тут
+        a: Вы хотели бы узнать погоду города {{$session.geo}} на {{$session.time}}, верно?
     
         
         # q!: * weather *
