@@ -16,12 +16,12 @@ theme: /WeatherAndTours
         buttons:
             "Узнать погоду" -> /WeatherAndTours/What_weather
             "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
-        state: LocalCatchAll
-            event: noMatch
-            a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
-            buttons:
-                "Узнать погоду" -> /WeatherAndTours/What_weather
-                "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
+        # state: LocalCatchAll
+        #     event: noMatch
+        #     a: Бот Виктор может проконсультировать вас о погоде или помочь оформить заявку на подбор тура. Расскажите, что Вас интересует.
+        #     buttons:
+        #         "Узнать погоду" -> /WeatherAndTours/What_weather
+        #         "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
     
     
     state: What_weather
