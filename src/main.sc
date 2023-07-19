@@ -24,12 +24,12 @@ theme: /WeatherAndTours
                 "Оформить заявку на тур" -> /WeatherAndTours/Appl_form
     
     
-        state: What_weather
-            q: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[@mystem.geo::geo|@pymorphy.geox::geox] [@duckling.date::date|@duckling.time::time]} *
-            q: * погода *
-            a: ok
+    state: What_weather
+        q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[@mystem.geo::geo|@pymorphy.geox::geox] [@duckling.date::date|@duckling.time::time]} *
+        q!: * погода *
+        a: ok
+
     
-        
         
         # q!: * weather *
         # q!: * @mystem.geo::geo *
