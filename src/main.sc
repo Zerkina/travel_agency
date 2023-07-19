@@ -32,7 +32,7 @@ theme: /WeatherAndTours
         # q!: * погода *
         script:
            $session.geo = $parseTree.Where;
-           $reactions.transition("/Shallow")
+           $reactions.transition("../Shallow");
         
         state: GetDate
             random:
