@@ -29,7 +29,7 @@ theme: /WeatherAndTours
         a: Назови город
         
         state: City
-            q: * (@mystem.geo::geo * 
+            q: * @mystem.geo::geo * 
             q: * @pymorphy.geox::geo *
         # q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[$Where] [@duckling.date::time|@duckling.time::time]} *
         # q!: * погода *
