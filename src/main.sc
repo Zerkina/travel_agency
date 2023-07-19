@@ -27,26 +27,14 @@ theme: /WeatherAndTours
     
     state: WhatWeather
         a: Назови город
-        q!: * $Where *
+        
+        state: City
+            q: * $Where *
         # q!: * [какая|какой] (погод*|температур*|градус*|прогноз) * {[$Where] [@duckling.date::time|@duckling.time::time]} *
         # q!: * погода *
-        script:
-           $session.geo = $parseTree.Where;
-           $reactions.transition("../Shallow");
-        
-        state: GetDate
-            random:
-                a: На какую дату Вы хотели бы узнать прогноз?
-                a: На какой день Вы хотели бы узнать погоду?
-                a: Прогноз погоды на какой день Вас интересует?
-            
-            state: SaveDate
-                q: * @duckling.date::time *
-                q: * @duckling.time::time *
-                script:
-                    $session.time = $parseTree._time;
-    #                $reactions.transition("/WeatherAndTours/AnswerDate");
-                    $reactions.transition("/WeatherAndTours/WeatherAPI");
+            script:
+               $session.geo = $parseTree.Where;
+               $reactions.transition("../Shallow");
      
     state: Shallow
         a: {{$session.geo}} это прекрасно
