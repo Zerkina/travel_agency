@@ -35,10 +35,7 @@ theme: /WeatherAndTours
         # q!: * погода *
             script:
                $session.geo = $parseTree._geo;
-               $reactions.transition("/Shallow");
-     
-    state: Shallow
-        a: {{$session.geo}} это прекрасно
+            a: {{$session.geo}} это прекрасно
        
     state: WeatherAPI
         a: Вы хотели бы узнать погоду на {{$session.time}}, верно?
