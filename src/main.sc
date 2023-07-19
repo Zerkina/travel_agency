@@ -5,7 +5,7 @@ require: functions.js
 
 theme: /WeatherAndTours
     
-    state: Hello ||modal = true
+    state: Hello 
         q!: $regex</start>
         script:
             $jsapi.startSession();
